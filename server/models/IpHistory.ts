@@ -1,11 +1,14 @@
 export interface IPHistory {
-  id: number;
+  history_id?: number;
   date_submitted: Date;
-  ip: string;
+  geolocation_id: number;
+  user_id: number;
 }
 
 export const IPHistoryParams = {
-  ID: "id",
-  DATE: "date_submitted",
-  IP: "ip",
+  TABLE_NAME: "history",
+  // ID: "history_id",
+  // DATE: "date_submitted",
+  // GEOLOCATION_ID: "geolocation_id",
+  // USER_ID: "user_id",
 };

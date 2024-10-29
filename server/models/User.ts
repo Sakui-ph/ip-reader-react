@@ -1,11 +1,12 @@
 export interface User {
-  id: number;
+  user_id?: number;
   email: string;
   password: string; // binary (60)
 }
 
 export const UserParams = {
-  ID: "id",
-  EMAIL: "email",
-  PASSWORD: "password",
+  TABLE_NAME: "user",
+  //   ID: "user_id",
+  //   EMAIL: "email",
+  //   PASSWORD: "password",
 };
