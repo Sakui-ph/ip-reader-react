@@ -45,7 +45,10 @@ export const hashPassword = (
   res: Response,
   next: NextFunction
 ) => {
+  console.log(req.body);
   if (req.body.password === undefined) {
+    console.error("No password supplied");
+    res.send("Failed to create user");
     return;
   }
 

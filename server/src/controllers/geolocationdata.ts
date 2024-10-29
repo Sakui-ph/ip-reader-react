@@ -31,3 +31,5 @@ module.exports = {
     res: Response
   ): Promise<any> => {},
 };
+
+export default module.exports;

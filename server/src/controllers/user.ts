@@ -23,3 +23,5 @@ module.exports = {
   readUser: async (req: Request, res: Response): Promise<any> => {},
   updateUser: async (req: Request, res: Response): Promise<any> => {},
 };
+
+export default module.exports;

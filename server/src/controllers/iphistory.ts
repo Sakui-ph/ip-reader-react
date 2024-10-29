@@ -24,3 +24,5 @@ module.exports = {
   readIPHistory: async (req: Request, res: Response): Promise<any> => {},
   updateIPHistory: async (req: Request, res: Response): Promise<any> => {},
 };
+
+export default module.exports;
