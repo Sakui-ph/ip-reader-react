@@ -1,4 +1,5 @@
 import { queryDatabase } from "../database/db";
+import { convertSearchByToString } from "../helpers/databaseHelpers";
 import { User, UserParams } from "../models/User";
 
 class UserRepository {
@@ -16,6 +17,14 @@ class UserRepository {
       console.log((e as Error).message);
     }
     return;
+  };
+  find = async (projection: string[], searchBy: Record<string, any>) => {
+    const searchParams: string = convertSearchByToString(searchBy);
+    const result = await queryDatabase(
+      `SELECT ${projection.join(", ")} FROM users WHERE ${searchParams}`,
+      []
+    );
+    return result[0];
   };
 }
 
