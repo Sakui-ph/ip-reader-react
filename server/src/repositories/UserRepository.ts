@@ -21,7 +21,9 @@ class UserRepository {
   find = async (projection: string[], searchBy: Record<string, any>) => {
     const searchParams: string = convertSearchByToString(searchBy);
     const result = await queryDatabase(
-      `SELECT ${projection.join(", ")} FROM users WHERE ${searchParams}`,
+      `SELECT ${projection.join(", ")} FROM ${
+        UserParams.TABLE_NAME
+      } WHERE ${searchParams}`,
       []
     );
     return result[0];

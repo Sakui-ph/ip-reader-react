@@ -30,8 +30,7 @@ export const validatePassword = async (
     res.end();
     return;
   }
-
-  if (await bcrypt.compare(password, hashedPassword["password"])) {
+  if (await bcrypt.compare(password, hashedPassword[0]["password"])) {
     next();
   } else {
     res.send({ success: false, message: "wrong password" }).status(500);
@@ -47,8 +46,7 @@ export const hashPassword = (
 ) => {
   console.log(req.body);
   if (req.body.password === undefined) {
-    console.error("No password supplied");
-    res.send("Failed to create user");
+    res.send({ success: false, message: "failed to create user" }).status(500);
     return;
   }
 

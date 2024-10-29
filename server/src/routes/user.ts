@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from "express";
-import { hashPassword } from "../middleware/passwordHandler";
+import { hashPassword, validatePassword } from "../middleware/passwordHandler";
 import UserController from "../controllers/user";
 
 const router = Router();
@@ -17,6 +17,8 @@ router.post("/create", hashPassword, async (req: Request, res: Response) => {
   }
 });
 
-router.post("/login");
+router.post("/login", validatePassword, async (req: Request, res: Response) => {
+  res.send("Login Successful").status(200);
+});
 
 export { router as UserRoutes };
