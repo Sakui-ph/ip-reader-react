@@ -1,5 +1,6 @@
 import express from "express";
 import { UserRoutes } from "./routes/user";
+import { IpInfoRoutes } from "./routes/ipinfo";
 
 const app = express();
 
@@ -17,3 +18,4 @@ app.listen(PORT, () => {
 });
 
 app.use("/user", UserRoutes);
+app.use("/ip", IpInfoRoutes);
